@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue';
+import vuetify from 'vite-plugin-vuetify';
 import webExtension from "vite-plugin-web-extension";
 import * as path from 'path';
 
@@ -7,14 +8,16 @@ import * as path from 'path';
 export default defineConfig({
     root: "src",
     build: {
+        minify: false,
         outDir: path.resolve(__dirname, "dist"),
         emptyOutDir: true,
     },
     plugins: [
-        vue(),
         webExtension({
           manifest: "src/manifest.json",
           assets: "assets",
-        })
+        }),
+        vue(),
+        vuetify({autoImport: true}),
     ],
 })
