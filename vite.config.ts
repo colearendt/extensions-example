@@ -12,6 +12,7 @@ export default defineConfig({
         outDir: path.resolve(__dirname, "dist"),
         emptyOutDir: true,
     },
+    assetsInclude: [],
     plugins: [
         webExtension({
           manifest: "src/manifest.json",
